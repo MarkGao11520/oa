@@ -14,7 +14,9 @@ $('#table').bootstrapTable({
 	pagination: true,
 	//      queryParams : queryParams,
 	minimumCountColumns: 2,
-	async: false,
+    height: $(window).height(),
+
+    async: false,
 	pageNumber: 1, //初始化加载第一页，默认第一页
 	pageSize: 7, //每页的记录行数（*）
 	pageList: [7, 10, 15, 20], //可供选择的每页的行数（*）

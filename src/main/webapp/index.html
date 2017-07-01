@@ -14,6 +14,14 @@
 				padding: 0;
 			}
 		</style>
+		<style>
+			.panel-group{max-height:770px;overflow: auto;}
+			.leftMenu{margin:10px;margin-top:5px;}
+			.leftMenu .panel-heading{font-size:14px;padding-left:20px;height:36px;line-height:36px;color:white;position:relative;cursor:pointer;}/*转成手形图标*/
+			.leftMenu .panel-heading span{position:absolute;right:10px;top:12px;}
+			.leftMenu .menu-item-left{padding: 2px; background: transparent; border:1px solid transparent;border-radius: 6px;}
+			.leftMenu .menu-item-left:hover{background:#C4E3F3;border:1px solid #1E90FF;}
+		</style>
 	</head>
 
 	<body>
@@ -22,19 +30,19 @@
 				<div class="navbar-header">
 					<a class="navbar-brand" href="#">泽瑞科技OA</a>
 				</div>
-				<div>
-					<ul class="nav navbar-nav">
-						<li id="nn1">
-							<a href="javascript:changeNav1(1)">个人</a>
-						</li>
-						<li id="nn2" class="active">
-							<a href="javascript:changeNav1(2)">流程</a>
-						</li>
-						<li id="nn3">
-							<a href="javascript:changeNav1(3)">系统</a>
-						</li>
-					</ul>
-				</div>
+				<!--<div>-->
+					<!--<ul class="nav navbar-nav">-->
+						<!--<li id="nn1">-->
+							<!--<a href="javascript:changeNav1(1)">个人</a>-->
+						<!--</li>-->
+						<!--<li id="nn2" class="active">-->
+							<!--<a href="javascript:changeNav1(2)">流程</a>-->
+						<!--</li>-->
+						<!--<li id="nn3">-->
+							<!--<a href="javascript:changeNav1(3)">系统</a>-->
+						<!--</li>-->
+					<!--</ul>-->
+				<!--</div>-->
 				<ul class="nav navbar-nav navbar-right">
 					<li>
 						<a href="#"><span class="glyphicon glyphicon-user"></span> 修改密码</a>
@@ -44,18 +52,26 @@
 					</li>
 				</ul>
 			</div>
-			<ol class="nav nav-tabs nav-justified" id="nt">
+			<!--<ol class="nav nav-tabs nav-justified" id="nt">-->
 
-			</ol>
+			<!--</ol>-->
 
 		</nav>
-		<iframe id="iframe" src="modellist.html" style="width: 100%;margin-top: -20px;" frameborder="0" scrolling="no" onload="this.height=100"></iframe>
+
+		<div id="iframe" class="row" >
+			<div class="col-md-2">
+				<br>
+				<div id="tablist" class="panel-group table-responsive" role="tablist">
+				</div>
+			</div>
+			<div class="col-md-10">
+				<iframe  id="leftMenu" style="width: 100%;" src="modellist.html"  frameborder="0" scrolling="no" ></iframe>
+			</div>
+		</div>
 		<nav class="navbar navbar-default navbar-inverse navbar-fixed-bottom" id="bnav" role="navigation">
 			<div class="container-fluid">
-				<div class="navbar-header">
-					<a  style="margin: 0 auto"  class="navbar-brand" href="#">©版权所有天津泽瑞科技有限公司
+					<a  style="margin-left: 35%;width: 40%"  class="navbar-brand" href="#">©版权所有天津泽瑞科技有限公司
 						津ICP备16006638号</a>
-				</div>
 			</div>
 		</nav>
 	</body>
