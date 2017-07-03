@@ -90,7 +90,7 @@ function initTable() {
                 align: 'center',
                 valign: 'middle',
                 formatter: function (value, row, index) {
-                    return '<button class="btn btn-warning" onclick="exportXml(' + row.id + ')">导出</button>&nbsp;&nbsp;<button class="btn btn-warning" onclick="model(' + row.id + ')">流程图</button>&nbsp;&nbsp;<button class="btn btn-warning" onclick="depoly(' + row.id + ')">部署</button>';
+                    return '<button class="btn btn-success" onclick="exportXml(' + row.id + ')">导出</button>&nbsp;&nbsp;<button class="btn btn-success" onclick="model(' + row.id + ')">流程图</button>&nbsp;&nbsp;<button class="btn btn-success" onclick="depoly(' + row.id + ')">部署</button>';
                 }
             }]
     });

@@ -64,7 +64,7 @@ $('#table').bootstrapTable({
 			valign: 'middle',
 			sortable: true,
 			formatter: function(value, row, index) {
-				return '<button class="btn btn-warning" onclick="openDesignPanel()">设计表单</button>&nbsp;&nbsp;<button class="btn btn-warning">启用</button>'
+				return '<button class="btn btn-success" onclick="openDesignPanel()">设计表单</button>&nbsp;&nbsp;<button class="btn btn-success">启用</button>'
 			}
 		}
 	]
@@ -107,7 +107,7 @@ function addNewTr() {
 		'<td><input class="form-control" type="text" placeholder="请输入栏位名"></td>' +
 		'<td><select class="form-control"><option>文本输入框</option><option>多文本输入框</option><option>单选框</option><option>多选框</option></select></td>' +
 		'<td><select class="form-control"><option>手机号</option><option>邮箱</option><option>qq号</option><option>微信号</option><option>部门选择器</option><option>人员选择器</option><option>地区选择器</option></select></td>' +
-		'<td><button class="btn btn-warning" onclick="removeTr(' + design_id + ')">删除<span class="glyphicon glyphicon-remove"></span></button></td></tr>';
+		'<td><button class="btn btn-success" onclick="removeTr(' + design_id + ')">删除<span class="glyphicon glyphicon-remove"></span></button></td></tr>';
 	$('#designtbody').append(str);
 	design_id++;
 }

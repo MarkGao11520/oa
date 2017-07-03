@@ -29,7 +29,7 @@ import java.util.Map;
  * Created by gaowenfeng on 2017/6/6.
  */
 @Controller
-public class TestController {
+public class ModelController {
     @Autowired
     TestDao testDao;
     @Autowired
