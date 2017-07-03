@@ -46,7 +46,7 @@ function tablist() {
 	var str = '';
 	var array = ['系统','流程'];
 	var array1 = [['部门管理','人员管理'],['模型管理','流程管理','条件管理']];
-	var array2 = [['#','#'],['javascript:changeNav2(\'modellist.html\')','javascript:changeNav2(\'activiti_process_define.html\')','#'],['#','#']]
+	var array2 = [['javascript:changeNav2(\'depart\')','javascript:changeNav2(\'user\')'],['javascript:changeNav2(\'modellist\')','javascript:changeNav2(\'activiti_process_define\')','#'],['#','#']]
 	for(var i=0;i<array.length;i++){
         str+= '<div style="background-color: #34352c" class="panel  leftMenu">';
         str+='<div class="panel-heading"  id="collapseListGroupHeading'+i+'" data-toggle="collapse" data-target="#collapseListGroup'+i+ '"role="tab" >'+

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zrkj.oa.mapper.CustomFormMapper" >
+  <resultMap id="BaseResultMap" type="com.zrkj.oa.model.CustomForm" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="pro_def_id" property="proDefId" jdbcType="VARCHAR" />
+    <result column="deployment_id" property="deploymentId" jdbcType="VARCHAR" />
+    <result column="taskName" property="taskname" jdbcType="VARCHAR" />
+    <result column="condition_id" property="conditionId" jdbcType="VARCHAR" />
+    <result column="isdel" property="isdel" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, pro_def_id, deployment_id, taskName, condition_id, isdel
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_custom_form
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_custom_form
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zrkj.oa.model.CustomForm" >
+    insert into tb_custom_form (id, pro_def_id, deployment_id, 
+      taskName, condition_id, isdel
+      )
+    values (#{id,jdbcType=INTEGER}, #{proDefId,jdbcType=VARCHAR}, #{deploymentId,jdbcType=VARCHAR}, 
+      #{taskname,jdbcType=VARCHAR}, #{conditionId,jdbcType=VARCHAR}, #{isdel,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zrkj.oa.model.CustomForm" >
+    insert into tb_custom_form
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="proDefId != null" >
+        pro_def_id,
+      </if>
+      <if test="deploymentId != null" >
+        deployment_id,
+      </if>
+      <if test="taskname != null" >
+        taskName,
+      </if>
+      <if test="conditionId != null" >
+        condition_id,
+      </if>
+      <if test="isdel != null" >
+        isdel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="proDefId != null" >
+        #{proDefId,jdbcType=VARCHAR},
+      </if>
+      <if test="deploymentId != null" >
+        #{deploymentId,jdbcType=VARCHAR},
+      </if>
+      <if test="taskname != null" >
+        #{taskname,jdbcType=VARCHAR},
+      </if>
+      <if test="conditionId != null" >
+        #{conditionId,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null" >
+        #{isdel,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zrkj.oa.model.CustomForm" >
+    update tb_custom_form
+    <set >
+      <if test="proDefId != null" >
+        pro_def_id = #{proDefId,jdbcType=VARCHAR},
+      </if>
+      <if test="deploymentId != null" >
+        deployment_id = #{deploymentId,jdbcType=VARCHAR},
+      </if>
+      <if test="taskname != null" >
+        taskName = #{taskname,jdbcType=VARCHAR},
+      </if>
+      <if test="conditionId != null" >
+        condition_id = #{conditionId,jdbcType=VARCHAR},
+      </if>
+      <if test="isdel != null" >
+        isdel = #{isdel,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zrkj.oa.model.CustomForm" >
+    update tb_custom_form
+    set pro_def_id = #{proDefId,jdbcType=VARCHAR},
+      deployment_id = #{deploymentId,jdbcType=VARCHAR},
+      taskName = #{taskname,jdbcType=VARCHAR},
+      condition_id = #{conditionId,jdbcType=VARCHAR},
+      isdel = #{isdel,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
