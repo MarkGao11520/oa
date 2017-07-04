@@ -26,6 +26,8 @@ public class DepartServiceImpl implements IDepartService {
 
     @Transactional
     public void save(Depart depart) {
+        if(departMapper.selectByName(depart.getName())!=null)
+            throw new ServiceException("部门已经存在");
         if(departMapper.insertSelective(depart)!=1)
             throw new ServiceException("添加失败");
         else
@@ -38,7 +40,7 @@ public class DepartServiceImpl implements IDepartService {
     }
 
     public void delete(Integer[] ids) {
-        if(departMapper.deleteBatch(ids)!=1)
+        if(departMapper.deleteBatch(ids)!=ids.length)
             throw new ServiceException("删除失败");
     }
 

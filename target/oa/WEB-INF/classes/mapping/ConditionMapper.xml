@@ -17,6 +17,31 @@
     from tb_condition
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <!--根据名称查找-->
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from tb_condition
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
+
+  <!--获取列表-->
+  <select id="selectList" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from tb_condition
+  </select>
+
+  <!--批量删除-->
+  <update id="deleteBatch"  >
+    update tb_condition
+    set isdel = 1
+    where id IN
+    <foreach collection="list" separator="," open="(" close=")" item="item">
+      #{item}
+    </foreach>
+  </update>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from tb_condition
     where id = #{id,jdbcType=INTEGER}

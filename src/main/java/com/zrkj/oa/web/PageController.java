@@ -16,9 +16,7 @@ public class PageController {
     }
 
     @RequestMapping("/activiti_process_define")
-    public void activiti_process_define(){
-
-    }
+    public void activiti_process_define(){}
 
     @RequestMapping("/modellist")
     public void modellist(){}
@@ -31,4 +29,7 @@ public class PageController {
 
     @RequestMapping("/user")
     public void user(){}
+
+    @RequestMapping("/condition")
+    public void condition(){}
 }

@@ -1,4 +1,4 @@
-var url = 'table_data.json'
+var url = 'customFormController/getList'
 var design_id = 1;
 
 $('#table').bootstrapTable({
@@ -18,8 +18,8 @@ $('#table').bootstrapTable({
 
     async: false,
 	pageNumber: 1, //初始化加载第一页，默认第一页
-	pageSize: 7, //每页的记录行数（*）
-	pageList: [7, 10, 15, 20], //可供选择的每页的行数（*）
+	pageSize: 5, //每页的记录行数（*）
+	pageList: [5,10, 15, 20, 30], //可供选择的每页的行数（*）
 	uniqueId: "id", //每一行的唯一标识，一般为主键列
 	//      responseHandler: responseHandler,
 	columns: [{
@@ -30,19 +30,25 @@ $('#table').bootstrapTable({
 			}
 		},
 		{
-			field: 'PRODEFID',
+			field: 'id',
 			title: '流程定义ID',
 			align: 'center',
 			valign: 'middle',
 			sortable: true
 		}, {
-			field: 'NAME',
+			field: 'name',
 			title: '模型名称',
 			align: 'center',
 			valign: 'middle',
 			sortable: true
-		}, {
-			field: 'DEPLOYIMENTID',
+		},  {
+            field: 'version',
+            title: '版本',
+            align: 'center',
+            valign: 'middle',
+            sortable: true
+        },{
+			field: 'deploymentId',
 			title: '部署ID',
 			align: 'center',
 			valign: 'middle',

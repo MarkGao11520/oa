@@ -18,4 +18,6 @@ public interface LoginMapper {
 
     @Select("select * from tb_login where username = #{username} and password = #{password}")
     Login selectByLogin(Login login);
+
+    Login selectByUserName(String username);
 }

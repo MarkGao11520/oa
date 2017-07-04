@@ -21,4 +21,6 @@ public interface DepartMapper {
     int deleteBatch(@Param("list") Integer[] list);
 
     List<Depart> selectList();
+
+    Depart selectByName(@Param("name") String name);
 }

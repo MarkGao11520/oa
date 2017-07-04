@@ -42,6 +42,8 @@ public class UserServiceImpl implements IUserService{
 
     @Transactional
     public void save(Login login, UserProperty user) {
+        if(loginMapper.selectByUserName(login.getUsername())!=null)
+            throw new ServiceException("改用户已经存在");
         login.setPassword("66666666");
         if(loginMapper.insertSelective(login)==1){
             user.setUid(login.getId());

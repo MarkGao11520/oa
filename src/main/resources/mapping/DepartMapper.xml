@@ -17,6 +17,13 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
 
+  <select id="selectByName" resultMap="BaseResultMap"  >
+    select
+    <include refid="Base_Column_List" />
+    from tb_depart
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
+
   <select id="selectList" resultMap="BaseResultMap"  >
     select
     <include refid="Base_Column_List" />

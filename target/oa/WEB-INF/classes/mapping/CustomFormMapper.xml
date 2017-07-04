@@ -12,23 +12,38 @@
   <sql id="Base_Column_List" >
     id, pro_def_id, deployment_id, taskName, condition_id, isdel
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <!--根据定义查找-->
+  <select id="selectByProcessDefineId" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
+    <include refid="Base_Column_List" />
+    from tb_custom_form
+    where pro_def_id = #{pro_def_id,jdbcType=INTEGER}
+    and isdel = 0
+  </select>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
     <include refid="Base_Column_List" />
     from tb_custom_form
     where id = #{id,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from tb_custom_form
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.zrkj.oa.model.CustomForm" >
-    insert into tb_custom_form (id, pro_def_id, deployment_id, 
-      taskName, condition_id, isdel
+
+  <!--批量添加-->
+  <insert id="insertBatch"  >
+    insert into tb_custom_form (pro_def_id, deployment_id,
+      taskName, condition_id
       )
-    values (#{id,jdbcType=INTEGER}, #{proDefId,jdbcType=VARCHAR}, #{deploymentId,jdbcType=VARCHAR}, 
-      #{taskname,jdbcType=VARCHAR}, #{conditionId,jdbcType=VARCHAR}, #{isdel,jdbcType=INTEGER}
+    values
+    <foreach collection="list" separator="," item="item">
+    (#{item.proDefId,jdbcType=VARCHAR}, #{item.deploymentId,jdbcType=VARCHAR},
+      #{item.taskname,jdbcType=VARCHAR}, #{item.conditionId,jdbcType=VARCHAR}
       )
+    </foreach>
   </insert>
   <insert id="insertSelective" parameterType="com.zrkj.oa.model.CustomForm" >
     insert into tb_custom_form
